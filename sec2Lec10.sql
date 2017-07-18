@@ -44,3 +44,18 @@ Assignment: print out ENAME makes SAL per month for all employees
 */
 
 SELECT ENAME || ' makes ' || SAL || ' per month ' AS "RESULT" from EMP 
+
+-- finally, sorting stuff
+
+SELECT * FROM EMP ORDER BY ENAME  -- alphabetically
+
+SELECT * FROM EMP ORDER BY ENAME ASC
+
+SELECT * FROM EMP ORDER BY HIREDATE ASC
+
+SELECT * FROM EMP ORDER BY SAL DESC
+ 
+SELECT DEPTNO, ENAME, SAL FROM EMP ORDER BY DEPNO, SAL -- order first by deptno, and within that, sal
+
+
+
