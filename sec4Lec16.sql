@@ -1,0 +1,28 @@
+/* 
+
+SRFs  take N rows and return N rows.
+Group functions take N rows and return 1 row.
+
+*/
+
+SELECT MAX(SAL) FROM EMP  
+
+SELECT MIN(SAL) AS "MIN_SAL" FROM EMP
+
+SELECT SUM(SAL) AS "SUM_SAL" FROM EMP 
+
+-- find the highest paid manager and their salary
+
+SELECT MAX(SAL) FROM EMP WHERE JOB = 'MANAGER' 
+
+SELECT MAX(SAL) FROM EMP WHERE JOB LIKE LOWER('%MANAGER%')
+
+SELECT AVG(SAL) FROM EMP 
+
+SELECT ROUND(AVG(SAL),2) FROM EMP 
+
+SELECT COUNT(ENAME) as "COUNT" FROM EMP
+
+SELECT COUNT(COMM) AS COUNT FROM EMP  -- only counts non-null values
+
+SELECT SUM(SAL)/COUNT(*) as COMPUTED_AVG, AVG(SAL) AS NATIVE SAL FROM EMP 
