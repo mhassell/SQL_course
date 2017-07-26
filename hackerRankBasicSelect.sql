@@ -13,8 +13,19 @@ select city from station where left(city,1) in ('a', 'e', 'i', 'o', 'u')
 select distinct city from station where right(city,1) in ('a', 'e', 'i', 'o', 'u')
 
 -- Weather Observation Station 8
-select distinct city from station where right(city,1) in ('a', 'e', 'i', 'o', 'u')
-
--- Weather Observation Station  9
 select distinct city from station where ( right(city,1) in ('a', 'e', 'i', 'o', 'u') 
 	and left(city,1) in ('a', 'e', 'i', 'o', 'u'))
+
+-- Weather Observation Station 9
+select distinct city from station where left(city,1) not in ('a', 'e', 'i', 'o', 'u') 
+
+-- Weather Observation Station 10
+select distinct city from station where right(city,1) not in ('a', 'e', 'i', 'o', 'u') 
+
+-- Weather Observation Station 11
+select distinct city from station where ( right(city,1) not in ('a', 'e', 'i', 'o', 'u') 
+	or left(city,1) not in ('a', 'e', 'i', 'o', 'u') )
+
+-- Weather Observation Station 12
+select distinct city from station where ( right(city,1) not in ('a', 'e', 'i', 'o', 'u') 
+	and left(city,1) not in ('a', 'e', 'i', 'o', 'u') )
