@@ -29,3 +29,13 @@ select distinct city from station where ( right(city,1) not in ('a', 'e', 'i', '
 -- Weather Observation Station 12
 select distinct city from station where ( right(city,1) not in ('a', 'e', 'i', 'o', 'u') 
 	and left(city,1) not in ('a', 'e', 'i', 'o', 'u') )
+
+-- Higher Than 75 Marks
+select name from students where marks > 75 order by right(name,3), id
+
+-- Employee Names
+select name from Employee order by name
+
+
+-- Employee Salaries
+select name from employee where salary > 2000 and months < 10 order by employee_id
