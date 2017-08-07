@@ -15,4 +15,4 @@ SELECT IF(GRADE >= 8, SELECT STUDENTS.NAME, GRADES.Grade, STUDENTS.Marks FROM ST
 		STUDENTS.MARK >= GRADES.Min_Mark AND STUDENTS.MARK <= MAX_MARK)
 
 -- Top Competitors
-select hacker_id, name from 
+select hacker_id, name from (select hacker_id, name from hackers inner join )
