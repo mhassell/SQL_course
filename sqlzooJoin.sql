@@ -22,3 +22,10 @@ SELECT goal.matchid, game.mdate, count(goal.matchid) FROM game join goal on (goa
 
 select goal.matchid, game.mdate, count(goal.matchid) from game inner join goal on game.id = goal.matchid where goal.teamid = 'GER' group by goal.matchid, game.mdate
 
+SELECT mdate,
+  team1,
+  sum(CASE WHEN teamid=team1 THEN 1 ELSE 0 END) score1, 
+  team2, 
+  sum(CASE WHEN teamid=team2 THEN 1 ELSE 0 END) score2
+  FROM game LEFT JOIN goal ON matchid = id 
+  group by mdate, matchid, team1, team2
