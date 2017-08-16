@@ -30,3 +30,31 @@ select movie.title from
 select movie.title, actor.name from 
 	(casting join movie on movie.id = casting.movieid join actor on actor.id = casting.actorid) 
 	where (casting.ord =1 and movie.yr = '1962')
+
+select distinct movie.title, actor.name from 
+	(casting join movie on movie.id = casting.movieid join actor on actor.id = casting.actorid) 
+	where movie.id in 
+    (SELECT movieid FROM casting
+    WHERE actorid IN (
+    SELECT id FROM actor
+    WHERE name='Julie Andrews')) AND casting.ord = 1
+
+select actor.name 
+	from (casting join movie on movie.id = casting.movieid join actor on actor.id = casting.actorid)
+	group by actor.name
+	having sum(casting.ord = 1) >= 30   -- why doesn't count(casting.ord = 1) work?
+	order by actor.name asc
+
+select movie.title, count(actorid)
+	from (casting join movie on movie.id = casting.movieid join actor on actor.id = casting.actorid)
+	where movie.yr = '1978'
+	group by movie.title
+	order by count(casting.actorid) desc, movie.title asc
+
+
+
+
+
+
+
+
