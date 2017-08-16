@@ -51,7 +51,12 @@ select movie.title, count(actorid)
 	group by movie.title
 	order by count(casting.actorid) desc, movie.title asc
 
-
+select actor.name from actor where actor.id in
+	(select casting.actorid from casting where casting.movieid in
+	(select movie.id from movie 
+	join casting on movie.id = casting.movieid
+	join actor on actor.id = casting.actorid
+	where actor.id in (select actor.id from actor where actor.name = 'Art Garfunkel'))) and actor.name not like 'Art Garfunkel'
 
 
 
